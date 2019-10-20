@@ -17,6 +17,7 @@ int main() {
   int i = 0;
   while (i < A) {
     cout << "]";
+    i++;
   }
   cout << endl;
 
@@ -24,6 +25,7 @@ int main() {
   int j = 0;
   while (j < B) {
     cout << "]";
+    j++;
   }
   cout << endl;
 }
