@@ -10,6 +10,7 @@
   エラーメッセージが複数表示された場合は最初のエラーから直す
 */
 
+/*
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -21,6 +22,7 @@ int main() {
     << "abcdefghijklmnopqrstuvwxyz" // 長いので改行してインデント
     << endl;
 }
+*/
 
 // 次のプログラムでは、coutの前に全角スペースが紛れ込んでいます。
 // ./Main.cpp:6:1: error: stray ‘\343’ in program
