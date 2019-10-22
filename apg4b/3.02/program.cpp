@@ -141,22 +141,22 @@ int main() {
   vector<pii> ab(N);
 
   for (int i = 0; i < N; i++) {
-      cin >> ab.at(i).second >> ab.at(i).first;
+    // cin >> ab.at(i).second >> ab.at(i).first;
+    cin >> ab.at(i).first >> ab.at(i).second;
   }
 
-  sort(ab.begin(), ab.end());
-
-/*
-  for (int i = N - 1; i > 0; i--) {
-      if (ab.at(i).second < ab.at(i - 1).second) {
-          swap(ab.at(i), ab.at(i - 1));
-      }
-  }
-  */
+  // sort(ab.begin(), ab.end());
 
   for (int i = 0; i < N; i++) {
-      cout << ab.at(i).second << " " << ab.at(i).first << endl;
+    for (int j = N - 1; j > 0; j--) {
+      if (ab.at(j).second < ab.at(j - 1).second) {
+          swap(ab.at(j), ab.at(j - 1));
+      }
+    }
+  }
+
+  for (int i = 0; i < N; i++) {
+      // cout << ab.at(i).second << " " << ab.at(i).first << endl;
+      cout << ab.at(i).first << " " << ab.at(i).second << endl;
   }
 }
-
-
