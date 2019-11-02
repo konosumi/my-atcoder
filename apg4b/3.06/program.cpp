@@ -94,12 +94,119 @@ int main() {
 using namespace std;
 
 // 変数の結果が入る
-map<string, int> var_map;
+map<char, int> varMap;
+map<char, vector<int>> vecVarMap;
 
-void int_operand() {
+// 現在処理中の文字
+char current;
 
+// 文字を数値に変換する関数
+int char2int(char current) {
+  // 0はasciiコードで48である
+  return ((int) current) - 48;
 }
- 
+
+int intExpr() {
+  // 計算結果を入れる
+  int calcResult = 0;
+
+  bool isAdd = true;
+  for (int i = 0; i < 999; i++) {
+    cin >> current;
+    if (current == '+') {
+      isAdd = true;
+    } else if (current == '-') {
+      isAdd = false;
+    } else if (current == ';' || current == ',' || current == ']') {
+      break;
+    } else {
+      int intVal = char2int(current);
+      // 0〜9の数値ではなく変数だった場合
+      if (intVal < 0 || 9 < intVal) {
+        intVal = varMap[current];
+      }
+      isAdd ? calcResult += intVal : calcResult -= intVal;
+    }
+  }
+
+  return calcResult;
+}
+
+void intOperand() {
+  char varName, equal;
+  cin >> varName >> equal;
+
+  // 計算結果を入れる
+  varMap[varName] = intExpr();
+}
+
+void printIntOperand() {
+  cout << intExpr() << endl;
+}
+
+vector<int> vecExpr() {
+  vector<int> calcResult, vecValue;
+
+  bool isAdd = true;
+  // 最初はまず読み取る
+  cin >> current;
+  for (int i = 0; i < 999; i++) {
+    if (current == '+') {
+      isAdd = true;
+    } else if (current == '-') {
+      isAdd = false;
+    } else if (current == ';') {
+      break;
+    } else if (current == '[' || current == ',') {
+      vecValue.push_back(intExpr());
+      continue;
+    } else if (current == ']') {
+      // cout << "vec num" << vecValue.size() << endl;
+      for (int v = 0; v < vecValue.size(); v++) {
+         if (calcResult.size() < v + 1) {
+           calcResult.push_back(0);
+         }
+cout << "asize " << vecValue.size() << " " << v << " " << calcResult.size() << endl;
+
+         isAdd ? calcResult.at(v) += vecValue.at(v) : calcResult.at(v) -= vecValue.at(v);
+      }
+      vecValue.clear();
+    } else {
+      vector<int> vec = vecVarMap[current];
+      for (int v = 0; v < vec.size(); v++) {
+        if (calcResult.size() < v + 1) {
+          calcResult.push_back(0);
+        }
+cout << "bsize " << vec.size() << " " << calcResult.size() << endl;
+
+        isAdd ? calcResult.at(v) += vec.at(v) : calcResult.at(v) -= vec.at(v);
+      }
+    }
+
+    cin >> current;
+  }
+
+  return calcResult;
+}
+
+void vecOperand() {
+  char varName, equal;
+  cin >> varName >> equal;
+
+  // 計算結果を入れる
+  vecVarMap[varName] = vecExpr();
+}
+
+void printVecOperand() {
+  vector<int> vec = vecExpr();
+
+  cout << "[ ";
+  for (int i = 0; i < vec.size(); i++) {
+    cout << vec.at(i) << " ";
+  }
+  cout << "]" << endl;
+}
+
 int main() {
   int N;
   cin >> N;
@@ -110,44 +217,13 @@ int main() {
     cin >> operand;
 
     if (operand == "int") {
-      int_operand();
-      cout << "int!!" << endl;
-      // varnameは代入する変数名
-      string varname, equal;
-      cin >> varname >> equal;
-
-      // 最終結果を入れる
-      int result = 0;
-      // 現在処理中の文字
-      char current = ' ';
-      bool isadd = true;
-      while (current != ';') {
-        cin >> current;
-        if (current == '+') {
-          isadd = true;
-        } else if (current == '-') {
-          isadd = false;
-        } else if (current == ';') {
-          var_map[varname] = result;
-        } else //if ()
-         {
-          int val = ((int) current) - 48;
-      cout << current << " cr " << val << endl;
-          if (isadd) {
-            result += val;
-          } else {
-            result -= val;
-          }
-          // isadd ? result += val : result -= val;
-        }
-      }
-      cout << result << endl;
+      intOperand();
+    } else if (operand == "print_int") {
+      printIntOperand(); 
+    } else if (operand == "vec") {
+      vecOperand();
+    } else if (operand == "print_vec") {
+      printVecOperand();
     }
   }
-} 
-
-/*
-2
-int x = 1 ;
-print_int x ;
-*/
+}
