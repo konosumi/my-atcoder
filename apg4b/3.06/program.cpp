@@ -161,12 +161,10 @@ vector<int> vecExpr() {
       vecValue.push_back(intExpr());
       continue;
     } else if (current == ']') {
-      // cout << "vec num" << vecValue.size() << endl;
       for (int v = 0; v < vecValue.size(); v++) {
          if (calcResult.size() < v + 1) {
            calcResult.push_back(0);
          }
-cout << "asize " << vecValue.size() << " " << v << " " << calcResult.size() << endl;
 
          isAdd ? calcResult.at(v) += vecValue.at(v) : calcResult.at(v) -= vecValue.at(v);
       }
@@ -177,7 +175,6 @@ cout << "asize " << vecValue.size() << " " << v << " " << calcResult.size() << e
         if (calcResult.size() < v + 1) {
           calcResult.push_back(0);
         }
-cout << "bsize " << vec.size() << " " << calcResult.size() << endl;
 
         isAdd ? calcResult.at(v) += vec.at(v) : calcResult.at(v) -= vec.at(v);
       }
