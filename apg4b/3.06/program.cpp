@@ -89,3 +89,65 @@ int main() {
   } while (next_permutation(v.begin(), v.end()));
 }
 */
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// 変数の結果が入る
+map<string, int> var_map;
+
+void int_operand() {
+
+}
+ 
+int main() {
+  int N;
+  cin >> N;
+
+  for (int i = 0; i < N; i++) {
+    // int, print_intなどの命令が入る
+    string operand;
+    cin >> operand;
+
+    if (operand == "int") {
+      int_operand();
+      cout << "int!!" << endl;
+      // varnameは代入する変数名
+      string varname, equal;
+      cin >> varname >> equal;
+
+      // 最終結果を入れる
+      int result = 0;
+      // 現在処理中の文字
+      char current = ' ';
+      bool isadd = true;
+      while (current != ';') {
+        cin >> current;
+        if (current == '+') {
+          isadd = true;
+        } else if (current == '-') {
+          isadd = false;
+        } else if (current == ';') {
+          var_map[varname] = result;
+        } else //if ()
+         {
+          int val = ((int) current) - 48;
+      cout << current << " cr " << val << endl;
+          if (isadd) {
+            result += val;
+          } else {
+            result -= val;
+          }
+          // isadd ? result += val : result -= val;
+        }
+      }
+      cout << result << endl;
+    }
+  }
+} 
+
+/*
+2
+int x = 1 ;
+print_int x ;
+*/
