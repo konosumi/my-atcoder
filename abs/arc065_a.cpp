@@ -1,7 +1,7 @@
 /**
+ * ABC049C - 白昼夢 / Daydream
  * https://atcoder.jp/contests/abs/tasks/arc065_a
  */
-
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -1,7 +1,7 @@
 /**
+ * A - Welcome to AtCoder
  * https://atcoder.jp/contests/practice/tasks/practice_1
  */
-
 #include <bits/stdc++.h>
 using namespace std;
  

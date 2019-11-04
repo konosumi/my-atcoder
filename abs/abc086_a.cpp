@@ -1,7 +1,7 @@
 /**
+ * ABC086A - Product
  * https://atcoder.jp/contests/abs/tasks/abc086_a
  */
-
 #include <bits/stdc++.h>
 using namespace std;
  
