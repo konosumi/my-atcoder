@@ -5,6 +5,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/**
+ * 正規表現を使った別解
+int main() {
+  string S;
+  cin >> S;
+
+  // 正規表現により、マッチした文字を取り除いていき、ぴったり空になるかをチェックする
+  S = regex_replace(S, regex("eraser"), "");
+  S = regex_replace(S, regex("erase"), "");
+  S = regex_replace(S, regex("dreamer"), "");
+  S = regex_replace(S, regex("dream"), "");
+  cout << (S == "" ? "YES" : "NO") << endl;
+}
+*/
+ 
 // 英小文字からなる文字列 S が与えられます。
 string S;
 
