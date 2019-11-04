@@ -7,48 +7,59 @@ using namespace std;
 
 // 英小文字からなる文字列 S が与えられます。
 string S;
-string T = "";
 
 bool addStr() {
   // まったく等しい文字列であれば一致とみなす
-  if (T == S) {
-    return true;
-  }
-
-  // 最低5文字以上の開きがないと、文字が追加できない
-  int diff = S.length() - T.length();
+  //if (S == "") {
+  //  return true;
+  //}
 
   // 作成途中のTが、Sと現時点で乖離していれば一致することは起き得ない
-  /*
-  if (diff > 0 && T != S.substr(0, T.length())) {
+  int length = S.length();
+  if (length < 5) {
      return false;
-  }*/
+  }
 
-  if (diff >= 7 && S.substr(T.length(), 7) == "dreamer") {
-    T = T + "dreamer";
+  if (length >= 7 && S.substr(0, 7) == "dreamer") {
+    S = S.substr(7);
+    if (S == "") {
+      return true;
+    }
     if (addStr()) {
       return true;
-    } else {
-      T = T.substr(0, T.length() - 7);
     }
-
-    T = T + "dream";
+    S = "dreamer" + S;
+  }
+  if (S.substr(0, 5) == "dream") {
+    S = S.substr(5);
+    if (S == "") {
+      return true;
+    }
     if (addStr()) {
       return true;
-    } else {
-      T = T.substr(0, T.length() - 5);
     }
+    S = "dream" + S;
   }
-  /*
-  if (diff >= 5 && S.substr(T.length(), 5) == "dream") {
-    return addStr(T + "dream");
+  if (length >= 6 && S.substr(0, 6) == "eraser") {
+    S = S.substr(6);
+    if (S == "") {
+      return true;
+    }
+    if (addStr()) {
+      return true;
+    }
+    S = "eraser" + S;
   }
-  if (diff >= 6 && S.substr(T.length(), 6) == "eraser") {
-    return addStr(T + "eraser") || addStr(T + "erase");
+  if (S.substr(0, 5) == "erase") {
+    S = S.substr(5);
+    if (S == "") {
+      return true;
+    }
+    if (addStr()) {
+      return true;
+    }
+    S = "erase" + S;
   }
-  if (diff >= 5 && S.substr(T.length(), 5) == "erase") {
-    return addStr(T + "erase");
-  }*/
 
   return false;
   // T の末尾に dream dreamer erase eraser のいずれかを追加する。
