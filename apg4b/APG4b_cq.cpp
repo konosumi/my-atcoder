@@ -28,6 +28,6 @@ int main() {
     }
   }
   if (op == "?" || op == "=" || op == "!") {
-      cout << "error" << endl;
+    cout << "error" << endl;
   }
 }
