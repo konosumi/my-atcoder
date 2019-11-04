@@ -1,9 +1,7 @@
-/*
-キーポイント
-for文は繰り返し処理でよくあるパターンをwhile文より短く書くための構文
-「初期化」→「条件式」→「処理」→「更新」→「条件式」→「処理」→...という順で実行され、条件式が真のとき繰り返し続ける
-*/
-
+/**
+ * EX11 - 電卓をつくろう2 / 1.11
+ * https://atcoder.jp/contests/APG4b/tasks/APG4b_cl
+ */
 #include <bits/stdc++.h>
 using namespace std;
  
