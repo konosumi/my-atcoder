@@ -1,10 +1,10 @@
 /**
  * C - Walk on Multiplication Table
  * https://atcoder.jp/contests/abc144/tasks/abc144_c
+ * TODO: まだ途中
  */
 #include <bits/stdc++.h>
 using namespace std;
-// typedef long long ll;
 
 int main() {
   long long N;
