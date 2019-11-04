@@ -1,5 +1,5 @@
 /**
- * https://atcoder.jp/contests/practice/tasks/practice_1
+ * https://atcoder.jp/contests/abs/tasks/practice_1
  */
 
 #include <bits/stdc++.h>
