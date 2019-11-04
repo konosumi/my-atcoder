@@ -1,12 +1,10 @@
 /**
-キーポイント
-  ループ構文の中にさらにループ構文があるものを多重ループと呼ぶ
-  多重ループを一度に抜けたい場合は、フラグ変数を用意してそれぞれのループを抜けるようにする必要がある
-*/
-
+ * EX17 - 果物屋さんでお買い物 / 2.02
+ * https://atcoder.jp/contests/apg4b/tasks/APG4b_cf
+ */
 #include <bits/stdc++.h>
 using namespace std;
- 
+
 int main() {
   int N, S;
   cin >> N >> S;
