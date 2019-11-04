@@ -1,59 +1,7 @@
-/*
-構造体
-
-#include <bits/stdc++.h>
-using namespace std;
-
-struct MyPair {
-  int x;     // 1つ目のデータはint型であり、xという名前でアクセスできる
-  string y;  // 2つ目のデータはstring型であり、yという名前でアクセスできる
-};
-
-int main() {
-  MyPair p = {12345, "hello"};  // MyPair型の値を宣言
-  cout << "p.x = " << p.x << endl;
-  cout << "p.y = " << p.y << endl;
-}
-*/
-
-/*
-コンストラクタ
-
-#include <bits/stdc++.h>
-using namespace std;
-
-struct NumString {
-  int length;
-  string s;
-  // コンストラクタ
-  NumString(int num) {
-    cout << "constructor called" << endl;
-
-    // 引数のnumを文字列化したものをsに代入し、sの文字数をlengthに代入する
-    s = to_string(num);  // (STLの関数)
-    length = s.size();
-  }
-};
-
-int main() {
-  NumString num(12345);  // コンストラクタに 12345 が渡される
-  cout << "num.s = " << num.s << endl;
-  cout << "num.length = " << num.length << endl;
-}
-*/
-
-/*
-コピーコンストラクタは次のように定義します。
-
-struct 構造体名 {
-  // コピーコンストラクタ
-  構造体名(const 構造体名 &old) {
-    // コンストラクタの内容
-    // (oldの内容を使って初期化などを行う)
-  }
-};
-*/
-
+/**
+ * EX24 - 時計の実装 / 3.04
+ * https://atcoder.jp/contests/apg4b/tasks/APG4b_by
+ */
 #include <bits/stdc++.h>
 using namespace std;
 
