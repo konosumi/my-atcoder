@@ -1,10 +1,7 @@
-/*
-キーポイント
-  x = x + yはx += yのように短く書ける
-  x += 1はx++と書ける（インクリメント）
-  x -= 1はx--と書ける（デクリメント）
-*/
-
+/**
+ * EX9 - 複合代入演算子を使おう / 1.09
+ * https://atcoder.jp/contests/APG4b/tasks/APG4b_cn
+ */
 #include <bits/stdc++.h>
 using namespace std;
  

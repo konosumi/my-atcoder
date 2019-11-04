@@ -1,8 +1,7 @@
-/*
-キーポイント
-  while文を使うと繰り返し処理ができる
-  条件式が真のとき処理を繰り返す
-*/
+/**
+ * EX10 - 棒グラフの出力 / 1.10
+ * https://atcoder.jp/contests/APG4b/tasks/APG4b_cm
+ */
 
 #include <bits/stdc++.h>
 using namespace std;
