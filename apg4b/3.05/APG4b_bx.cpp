@@ -1,3 +1,7 @@
+/**
+ * EX25 - 集合の操作 / 3.05
+ * https://atcoder.jp/contests/apg4b/tasks/APG4b_bx
+ */
 #include <bits/stdc++.h>
 using namespace std;
 
