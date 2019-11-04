@@ -1,17 +1,7 @@
-/*
-キーポイント
-  条件式の結果は真のとき1に、偽のとき0になる
-  1をtrueで、0をfalseで表す
-  bool型はtrueとfalseだけが入る型
-*/
-
-/*
-bool型と数値
-
-実は、0と1以外の数値もbool型の値のように扱うことができます。
-その場合、0のときだけfalse、それ以外の数値はすべてtrueになります。
-*/
-
+/**
+ * EX7 - bool値パズル / 1.07
+ * https://atcoder.jp/contests/APG4b/tasks/APG4b_cp
+ */
 #include <bits/stdc++.h>
 using namespace std;
  
