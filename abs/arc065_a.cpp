@@ -7,8 +7,9 @@ using namespace std;
 
 // 英小文字からなる文字列 S が与えられます。
 string S;
+string T = "";
 
-bool addStr(string T) {
+bool addStr() {
   // まったく等しい文字列であれば一致とみなす
   if (T == S) {
     return true;
@@ -24,8 +25,21 @@ bool addStr(string T) {
   }*/
 
   if (diff >= 7 && S.substr(T.length(), 7) == "dreamer") {
-    return addStr(T + "dreamer") || addStr(T + "dream");
+    T = T + "dreamer";
+    if (addStr()) {
+      return true;
+    } else {
+      T = T.substr(0, T.length() - 7);
+    }
+
+    T = T + "dream";
+    if (addStr()) {
+      return true;
+    } else {
+      T = T.substr(0, T.length() - 5);
+    }
   }
+  /*
   if (diff >= 5 && S.substr(T.length(), 5) == "dream") {
     return addStr(T + "dream");
   }
@@ -34,7 +48,7 @@ bool addStr(string T) {
   }
   if (diff >= 5 && S.substr(T.length(), 5) == "erase") {
     return addStr(T + "erase");
-  }
+  }*/
 
   return false;
   // T の末尾に dream dreamer erase eraser のいずれかを追加する。
@@ -46,5 +60,5 @@ int main() {
   cin >> S;
 
   //  Tが空文字列である状態から始める
-  cout << (addStr("") ? "YES" : "NO") << endl;
+  cout << (addStr() ? "YES" : "NO") << endl;
 }
