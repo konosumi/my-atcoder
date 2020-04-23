@@ -15,7 +15,8 @@ int main() {
     int B;
     cin >> B;
     if (A.count(B)) {
-      A[B]++;
+      // A[B]++;
+      A[B] = A.at(B) + 1;
     } else {
       A[B] = 1;
     }
