@@ -6,7 +6,7 @@
 using namespace std;
  
 int main() {
-  typedef pair<int, int> pii;
+  using pii = pair<int, int> ;
   int N;
   cin >> N;
   vector<pii> ab(N);
