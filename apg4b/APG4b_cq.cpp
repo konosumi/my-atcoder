@@ -14,20 +14,18 @@ int main() {
     cout << A + B << endl;
   }
   // ここにプログラムを追記
-  if (op == "-") {
+  else if (op == "-") {
     cout << A - B << endl;
-  }
-  if (op == "*") {
+  } else if (op == "*") {
     cout << A * B << endl;
-  }
-  if (op == "/") {
+  } else if (op == "/") {
     if (B == 0) {
       cout << "error" << endl;
     } else {
       cout << A / B << endl;
     }
-  }
-  if (op == "?" || op == "=" || op == "!") {
+  // } else if (op == "?" || op == "=" || op == "!") {
+  } else {
     cout << "error" << endl;
   }
 }
