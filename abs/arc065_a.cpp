@@ -19,57 +19,43 @@ int main() {
   cout << (S == "" ? "YES" : "NO") << endl;
 }
 */
- 
-// 英小文字からなる文字列 S が与えられます。
+
 string S;
 
-bool addStr() {
-  // 文字列が等しくなると空になる
-  if (S == "") {
-    return true;
-  }
-
+void checkStr() {
+  // 文字列の長さ
   int length = S.length();
-  if (length < 5) {
-     return false;
+
+  // Sの末尾からdreamerを取り除く
+  if (length >= 7 && S.substr(length - 7, length) == "dreamer") {
+    S = S.substr(0, length - 7);
+    return checkStr();
+  }
+  // Sの末尾からdreamを取り除く
+  if (length >= 5 && S.substr(length - 5, length) == "dream") {
+    S = S.substr(0, length - 5);
+    return checkStr();
   }
 
-  // T の末尾に dream dreamer erase eraser のいずれかを追加する。
-  if (length >= 7 && S.substr(0, 7) == "dreamer") {
-    S = S.substr(7);
-    if (addStr()) {
-      return true;
-    }
-    S = "dreamer" + S;
+  // Sの末尾からeraserを取り除く
+  if (length >= 6 && S.substr(length - 6, length) == "eraser") {
+    S = S.substr(0, length - 6);
+    return checkStr();
   }
-  if (S.substr(0, 5) == "dream") {
-    S = S.substr(5);
-    if (addStr()) {
-      return true;
-    }
-    S = "dream" + S;
+  // Sの末尾からeraseを取り除く
+  if (length >= 5 &&  S.substr(length - 5, length) == "erase") {
+    S = S.substr(0, length - 5);
+    return checkStr();
   }
-  if (length >= 6 && S.substr(0, 6) == "eraser") {
-    S = S.substr(6);
-    if (addStr()) {
-      return true;
-    }
-    S = "eraser" + S;
-  }
-  if (S.substr(0, 5) == "erase") {
-    S = S.substr(5);
-    if (addStr()) {
-      return true;
-    }
-    S = "erase" + S;
-  }
-
-  return false;
+  
+  return;
 }
 
 int main() {
+  // 英小文字からなる文字列 S が与えられます。
   cin >> S;
+  checkStr();
 
-  //  Tが空文字列である状態から始める
-  cout << (addStr() ? "YES" : "NO") << endl;
+  // 末尾から文字列を取り除いていった結果、空になれば S=Tになる
+  cout << (S == "" ? "YES" : "NO") << endl;
 }
