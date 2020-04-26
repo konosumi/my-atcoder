@@ -25,18 +25,19 @@ int main() {
         }
     }
 
-    // Si≠Sj かつ Si≠Sk かつ Sj≠Sk である
-    // RとGとBの組み合わせによって決まる
+    // Si≠Sj かつ Si≠Sk かつ Sj≠Skとは、すべて異なる値となる
+    // よって、RとGとBの組み合わせによって決まる
     long long cnt = r * g * b;
 
     for (int i = 0; i < N; i++) {
         for (int j = i + 1; j < N; j++) {
+            // j−i≠k−jを求めるのは大変なので「j - i = k - j」となるパターンを探して、総ヒットから除外する
             int k = 2 * j - i;
             if (k >= N) {
                 continue;
             }
 
-            // Si≠Sj かつ Si≠Sk かつ Sj≠Sk である
+            // Si≠Sj かつ Si≠Sk かつ Sj≠Sk 
             if  (S[i] != S[j] && S[i] != S[k] && S[j] != S[k]) {
                 cnt -= 1;
             }
