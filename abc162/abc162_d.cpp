@@ -5,19 +5,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector <int> stack2vector(stack<int> st) {
-    vector<int> vec(st.size());
-
-    int i = 0;
-    while (!st.empty()) {
-        vec.at(i) = st.top();
-        st.pop();
-        i++;
-    } 
-    return vec;
-}
-
-
 int main() {
     // R, G, B のみからなる、長さ N の文字列 S があります。
     int N;
@@ -27,32 +14,34 @@ int main() {
     // 以下の 2 つの条件をともに満たす組 (i, j, k) (1≤i<j<k≤N) の数を求めてください。
     // Si≠Sj かつ Si≠Sk かつ Sj≠Sk である
     // j−i≠k−j である
-    stack<int>r;
-    stack<int>g;
-    stack<int>b;
-    for (int i = 0; i < S.size(); i++) {
+    long long r = 0, g = 0, b = 0;
+    for (int i = 0; i < N; i++) {
         if (S[i] == 'R') {
-            r.push(i);
+            r++;
         } else if (S[i] == 'G') {
-            g.push(i);
+            g++;
         } else if (S[i] == 'B') {
-            b.push(i);
+            b++;
         }
     }
 
-    vector<int> rv = stack2vector(r);
-    vector<int> gv = stack2vector(g);
-    vector<int> bv = stack2vector(b);
+    // Si≠Sj かつ Si≠Sk かつ Sj≠Sk である
+    // RとGとBの組み合わせによって決まる
+    long long cnt = r * g * b;
 
-    for (int i = 0; i < rv.size(); i++) {
-        for (int j = 0; j < gv.size(); j++) {
-            for (int k = 0; k < bv.size(); k++) {
-                if (rb.at() )
+    for (int i = 0; i < N; i++) {
+        for (int j = i + 1; j < N; j++) {
+            int k = 2 * j - i;
+            if (k >= N) {
+                continue;
+            }
+
+            // Si≠Sj かつ Si≠Sk かつ Sj≠Sk である
+            if  (S[i] != S[j] && S[i] != S[k] && S[j] != S[k]) {
+                cnt -= 1;
             }
         }
-
     }
 
-    //int cnt = min(min(r.size(), g.size()), b.size());
-    //cout << cnt << endl;
+    cout << cnt << endl;
 }
