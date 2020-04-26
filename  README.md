@@ -1,8 +1,16 @@
 # AtCoderの解答集
 
-C++のコンパイルには、g++-9を使います。
+## C++のコンパイル
 
 ```sh
+brew install gcc
 g++-9 program.cpp && ./a.out
 ```
 
+## AtCoder Beginner Contest
+
+| NO  | A  | B  | C  | D  | E  | F  |
+| --- | -- | -- | -- | -- | -- | -- |
+| 164 | -  | -  | -  | -  | -  | -  |
+| 163 | AC | AC | AC | AC | -  | -  |
+| 162 | -  | -  | -  | -  | -  | -  |
