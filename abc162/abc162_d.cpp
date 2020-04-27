@@ -5,6 +5,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/**
+ * intでオーバーフローが起きることのテスト
+int main() {
+    // ハードコードのint
+    long long res1 = 1333 * 1333 * 1333;
+    cout << res1 << endl; // -1926374259
+
+    // ハードコードのlong long
+    long long res2 = 1333LL * 1333LL * 1333LL;
+    cout << res2 << endl; // 2368593037
+
+    // intとlong longを組み合わせた例
+    long long res3 = 1333 * 1333 * 1333LL;
+    cout << res3 << endl; // 2368593037
+}
+*/
+
 int main() {
     // R, G, B のみからなる、長さ N の文字列 S があります。
     int N;
