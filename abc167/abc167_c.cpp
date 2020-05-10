@@ -29,7 +29,7 @@ int calcPrice() {
         }
 //        k++;
 
-        if (syujyukudo < 10) {
+        if (syujyukudo < X) {
             return INT_MAX;
         }
 // cout << i << " " <<  syujyukudo << endl;
